@@ -1,0 +1,13 @@
+
+	- Configurar direcciones MAC estaticas para prevenir que el PC intruso vuelva a influir.
+	- Comentar de manera teórica en el Word la hipotética aplicación del 802.1x para ayudar.
+	- Configurar direcciones MAC de los routers para prevenir que otro router intruso se conecte e influya.
+	- Añadir un router en la interfaz F0/4 del switch 2 para realizar una configuración VPN red a red de 
+	  manera sencilla.
+	- Configurar seguridad de nivel CAPA IP para el tema de routers intrusos.
+	- Revisar por qué no había conexión de la red A a la red B antes de que yo añadiera la ruta estática.
+	- Para los tipos de ataques centrarse en la clasificación CIA, no hace falta mencionar los nombres en concreto.
+	- Lo de la combinacion de dir IP, gateway y DNS server que no cuadra consiste en un bug del CPT. No preocuparse.
+	- El PC intruso ha modificado la dir IP del servidor DNS que el DHCP legítimo asigna. Mencionar eso en el word.
+	- Razonar por qué los de la red de la oficina deben tener acceso tanto a red A como a red B.
+	- 

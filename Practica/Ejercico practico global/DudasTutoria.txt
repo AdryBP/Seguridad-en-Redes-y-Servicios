@@ -1,0 +1,49 @@
+	
+	1-. ¿Por qué el Servidor DHCP legítimo asigna el servidor DNS intruso? Esto me
+	     confunde bastante. Ha sido el atacante el que ha provocado esto?
+
+	2-. ¿Si los x están cogiendo la configuración del servidor DHCP intruso,
+	     cómo es posible que tengan asignado el Gateway 192.168.1.1 cuando se puede
+	     ver que el DHCP intruso asigna el Gateway 172.16.1.1?
+	
+	2-. ¿Se puede hacer algo para prevenir que el PC-intruso1 se conecte a la red? Por
+	     ejemplo algún tipo de autenticación de usuario final o algo parecido.
+
+	3-. Misma pregunta pero para el router.
+
+	4-. En el último apartado, como se debe conectar físicamente la nueva red
+	    de la oficina? Los 4 PCs se conectan a un router y este router se conecta
+	    al Switch0, o cómo se debe hacer exactamente?
+
+
+
+
+
+	- El PC0 y PC2 NO pueden salir de la subred donde se encuentran (La que cuelga de la interfaz
+	  Gig0/0 del router R0).
+
+	- El PC1 puede salir de est subred, sin embargo cuando quiera realizar navegación web, sus 
+	  peticiones serán intervenidas por el DNS intruso y será dirigido al Server WEB intruso.
+
+	- El PC3 funciona correctamente.
+	
+	- El PC3 se puede comunicar con PC1, pero no con PC0 ni PC2.
+	- De manera similar, PC0 y PC2 pueden comunicarse entre ellos, pero no con PC1 ni PC3.
+
+	- Los pares nombre-direcciónIP del server DNS legítimo son correctos.
+
+	* Si configuramos DHCP snooping y ponemos la interfaz Fa0/6 del SW1 como trust, los PCs obtendrían
+	  direcciones IP apropiadas, pero se les seguiría asignando el server DNS intruso...
+
+	* #show port-security interface fa0/9
+
+	..Denegación de servicio. [PCs que no se pueden conectar entre ellos + PCs que no pueden salir de subred]
+	..Man in the middle. [Servidor WEB intruso que se recibe el tráfico cuando se hacen navegaciones web]
+	..DHCP spoofing. [Lo obvio] 
+	..DHCP furtivo. [Lo obvio]  --- Pregunta: ¿DHCP furtivo y DHCP spoofing son lo mismo? ---
+	..Ataque DHCP furtivo. [Lo obvio]
+
+	
+	;Habría que hablar de MACflooding, DHCP Starvation, DHCP poisoning?
+
+	
